@@ -2,7 +2,8 @@ import spacy
 import en_core_web_sm
 from nltk import sent_tokenize
 from flask import jsonify
-
+import nltk
+nltk.download('punkt')
 class my_dictionary(dict): 
   
     # __init__ function 
