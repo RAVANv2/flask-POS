@@ -2,9 +2,10 @@ from flask import Flask,request,render_template,jsonify
 from flask_restful import Resource, Api
 import requests
 from pos_tag import *
-
+from flask_cors import CORS
 # Creating app instance
 app = Flask(__name__)
+CORS(app)
 app.config['DEBUG'] = True
 app.config['JSON_SORT_KEYS'] = False
 
