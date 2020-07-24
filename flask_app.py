@@ -1,4 +1,5 @@
 from flask import Flask,request,render_template,jsonify
+from flask_restful import Resource, Api
 import requests
 from pos_tag import *
 
@@ -7,13 +8,17 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['JSON_SORT_KEYS'] = False
 
-@app.route('/get_pos', methods=['GET','POST'])
-def POS():
-    if(request.method == 'POST'):
+# Creating api instance
+api = Api(app)
+
+class pos_tag(Resource):
+    
+    def get(self):
+        return jsonify({'message': 'Make post request for results'})
+    
+    def post(self):
         text = request.get_json()['text']
         return pos_obj.result(text)
-    else:
-        return jsonify({'error': 'Text not found'})
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=8080, debug=True)   
+
+api.add_resource(pos_tag,'/get_pos')

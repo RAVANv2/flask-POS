@@ -31,8 +31,5 @@ class pos(my_dictionary):
             dict_obj.add(text,result)
         return dict_obj
 
-text = "One night four college students were out partying late night and didn’t study for the test which was scheduled for the next day. In the morning, they thought of a plan."
-
 # Initialize the class object 
 pos_obj = pos()
-print(pos_obj.result(text))
