@@ -87,5 +87,5 @@ class pos(my_dictionary):
 
 # Initialize the class object 
 pos_obj = pos()
-text = '''Elon Musk has shared a photo of the spacesuit designed by SpaceX. This is the second image shared of the new design and the first to feature the spacesuit’s full-body look.'''
-print(pos_obj.result(text))
+# text = '''Elon Musk has shared a photo of the spacesuit designed by SpaceX. This is the second image shared of the new design and the first to feature the spacesuit’s full-body look.'''
+# print(pos_obj.result(text))
