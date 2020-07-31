@@ -55,7 +55,7 @@ class pos(my_dictionary):
                 img.append(i.lower())
             new_images.append(img)   
 
-
+        len_noun = len(new_images)
         '''Subtitle''' 
 
         for k in range(len(new_sentences)):
@@ -75,10 +75,24 @@ class pos(my_dictionary):
                     elif(new_images[k][i] == new_text[j]):
                         subtitle.append(new_text[j])
                         ans = ' '.join(subtitle)
-                        cnt=j+1
+                        cnt = j + 1
+                        dict_obj.add(new_images[k][i],ans)
 
-                        dict_obj.add(ans,new_images[k][i])
-        return dict_obj
+        '''Completing last line error '''
+        for text in dict_obj.keys():
+            ans = text
+        dict_obj[ans] = new_sentences[-1]
+
+        '''Declare final object'''
+        final_obj = my_dictionary()
+
+        '''Appending correct ans to final dictonary object'''
+        for i in dict_obj.keys():
+            key = dict_obj[i]
+            value = i
+            final_obj.add(key,value)
+
+        return final_obj
 
 # Initialize the class object 
 pos_obj = pos()
