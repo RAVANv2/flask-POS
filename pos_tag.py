@@ -55,7 +55,7 @@ class pos(my_dictionary):
                 img.append(i.lower())
             new_images.append(img)   
 
-
+        print(new_images)
         '''Subtitle''' 
 
         for k in range(len(new_sentences)):
@@ -73,12 +73,19 @@ class pos(my_dictionary):
                         subtitle.append(new_text[j])
 
                     elif(new_images[k][i] == new_text[j]):
-                        subtitle.append(new_text[j])
-                        ans = ' '.join(subtitle)
-                        cnt=j+1
+                        if(new_images[k][i]!=new_images[k][-1]):
+                            subtitle.append(new_text[j])
+                            ans = ' '.join(subtitle)
+                            cnt=j+1
+                        else:
+                            
+                            subtitle.extend(new_text[j:])
+                            ans = ' '.join(subtitle)    
 
                         dict_obj.add(ans,new_images[k][i])
         return dict_obj
 
 # Initialize the class object 
 pos_obj = pos()
+text = '''Elon Musk has shared a photo of the spacesuit designed by SpaceX. This is the second image shared of the new design and the first to feature the spacesuit’s full-body look.'''
+print(pos_obj.result(text))
